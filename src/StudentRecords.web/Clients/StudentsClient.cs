@@ -6,8 +6,8 @@ namespace StudentRecords.web.Clients
 {
     public class StudentsClient : ClientBase
     {
-        public StudentsClient(string projectKey, string projectToken)
-           : base(projectKey, projectToken)
+        public StudentsClient()
+           : base()
         { }
 
         public async Task<IEnumerable<Student>> GetStudents(string keyword)
