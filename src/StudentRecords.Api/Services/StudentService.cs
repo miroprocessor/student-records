@@ -49,6 +49,10 @@ namespace StudentRecords.Api.Services
             await _studentsDbContext.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Student>> GetStudents()
+        {
+            return await _studentsDbContext.Students.ToListAsync();
+        }
         public async Task<Student> GetStudent(int id)
         {
             return await _studentsDbContext.Students.SingleOrDefaultAsync(i => i.Id == id);

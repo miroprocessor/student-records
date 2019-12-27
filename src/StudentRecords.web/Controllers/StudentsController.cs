@@ -15,9 +15,9 @@ namespace StudentRecords.web.Controllers
             _studentsClient = studentsClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _studentsClient.GetStudents());
         }
 
         public IActionResult Search()
@@ -45,7 +45,7 @@ namespace StudentRecords.web.Controllers
                 return View(model);
             }
             await _studentsClient.AddStudent(model);
-            return RedirectToAction(nameof(Search));
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Edit(int id)

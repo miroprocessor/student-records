@@ -16,6 +16,12 @@ namespace StudentRecords.web.Clients
             return Deserialize<IEnumerable<Student>>(response);
         }
 
+        public async Task<IEnumerable<Student>> GetStudents()
+        {
+            var response = await base.HttpClient.GetAsync($"Students");
+            return Deserialize<IEnumerable<Student>>(response);
+        }
+
         public async Task<Student> GetStudent(int id)
         {
             var response = await base.HttpClient.GetAsync($"Students/{id}");

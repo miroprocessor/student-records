@@ -16,6 +16,12 @@ namespace StudentRecords.Api.Controllers
         {
             _studentsService = studentsService;
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Student>>> Get()
+        {
+            var result = await _studentsService.GetStudents();
+            return CreatedAtAction(nameof(Get), result);
+        }
 
         [HttpGet]
         [Route("search/{keyword}")]

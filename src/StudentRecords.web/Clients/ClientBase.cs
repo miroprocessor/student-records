@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,7 +8,7 @@ namespace StudentRecords.web.Clients
 {
     public abstract class ClientBase
     {
-        private static string BaseAddress => ConfigurationManager.AppSettings["StudentApiUrl"];
+        private static string BaseAddress => "https://localhost:44375/";
 
         protected HttpClient HttpClient { get; private set; }
 
